@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/HomePage">
+
+    <fragment
+        android:id="@+id/HomePage"
+        android:name="com.freesign.HomePage"
+        android:label="@string/home_page_label"
+        tools:layout="@layout/home_page">
+
+        <action
+            android:id="@+id/action_HomePage_to_RegAndLogEmployee"
+            app:destination="@id/RegAndLogEmployer" />
+    </fragment>
+    <fragment
+        android:id="@+id/RegAndLogEmployer"
+        android:name="com.freesign.RegAndLogEmployer"
+        android:label="@string/regAndLog_employer_label"
+        tools:layout="@layout/register_and_login_employer">
+        <action
+            android:id="@+id/action_RegAndLogEmployer_to_RegEmployer"
+            app:destination="@id/RegEmployer" />
+        <action
+            android:id="@+id/action_RegAndLogEmployer_to_LogEmployer"
+            app:destination="@id/LogEmployer" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/RegEmployer"
+        android:name="com.freesign.RegEmployer"
+        android:label="@string/reg_employer_label"
+        tools:layout="@layout/register_employer">
+        <action
+            android:id="@+id/action_RegEmployer_to_LogEmployer"
+            app:destination="@id/LogEmployer" />
+        <action
+            android:id="@+id/action_RegEmployer_to_HelloUser"
+            app:destination="@id/HelloUser" />
+    </fragment>
+    <fragment
+        android:id="@+id/LogEmployer"
+        android:name="com.freesign.LogEmployer"
+        android:label="@string/log_employer_label"
+        tools:layout="@layout/login_employer">
+        <action
+            android:id="@+id/action_LogEmployer_to_HelloUser"
+            app:destination="@id/HelloUser" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/HelloUser"
+        android:name="com.freesign.HelloUser"
+        android:label="@string/hello_user_label"
+        tools:layout="@layout/hello_user">
+    </fragment>
+
+</navigation>
