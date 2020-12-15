@@ -7,6 +7,7 @@
     <string name="reg_employer_label">Ref Employer</string>
     <string name="log_employer_label">Log Employer</string>
     <string name="hello_user_label">Hello User</string>
+    <string name="user_profile_label">Hello User</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 

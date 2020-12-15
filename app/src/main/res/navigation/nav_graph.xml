@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_HomePage_to_RegAndLogEmployee"
             app:destination="@id/RegAndLogEmployer" />
+        <action
+            android:id="@+id/action_HomePage_to_HelloUser"
+            app:destination="@id/HelloUser" />
     </fragment>
     <fragment
         android:id="@+id/RegAndLogEmployer"
@@ -55,6 +58,18 @@
         android:name="com.freesign.HelloUser"
         android:label="@string/hello_user_label"
         tools:layout="@layout/hello_user">
+        <action
+            android:id="@+id/action_HelloUser_to_UserProfile"
+            app:destination="@id/UserProfile" />
+        <action
+            android:id="@+id/action_HelloUser_to_LogEmployer"
+            app:destination="@id/LogEmployer" />
+    </fragment>
+    <fragment
+        android:id="@+id/UserProfile"
+        android:name="com.freesign.UserProfile"
+        android:label="@string/user_profile_label"
+        tools:layout="@layout/user_profile">
     </fragment>
 
 </navigation>

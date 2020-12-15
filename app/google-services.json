@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "709441285724",
+    "project_id": "freesign-c3691",
+    "storage_bucket": "freesign-c3691.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:709441285724:android:08e5458933b399c8948099",
+        "android_client_info": {
+          "package_name": "com.freesign"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "709441285724-77j5ejl9t073306n453t96r2fve0orcb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrGoIrcdEKTYaP_GkAJ0tTcIUCA-VWcIc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "709441285724-77j5ejl9t073306n453t96r2fve0orcb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
