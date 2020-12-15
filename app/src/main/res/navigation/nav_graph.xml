@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_HomePage_to_RegAndLogEmployee"
             app:destination="@id/RegAndLogEmployer" />
+        <action
+            android:id="@+id/action_HomePage_to_HelloUser"
+            app:destination="@id/HelloUser" />
     </fragment>
     <fragment
         android:id="@+id/RegAndLogEmployer"

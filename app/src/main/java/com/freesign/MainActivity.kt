@@ -1,11 +1,15 @@
 package com.freesign
 
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import androidx.navigation.findNavController
+import com.freesign.firebase.firestore.Firestore.firestoreInstance
+import com.freesign.utils.Authenticated
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,6 +17,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        firestoreInstance.clearPersistence()
+
+        Authenticated.init(this)
+
+        Log.d("authenticated", Authenticated.getUser().toString())
+        Log.d("authenticated2", Authenticated.isValidCacheMember().toString())
 
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)

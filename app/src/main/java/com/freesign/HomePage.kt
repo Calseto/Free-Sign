@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.freesign.utils.Authenticated
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -24,7 +26,10 @@ class HomePage : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<Button>(R.id.welPage_first_button).setOnClickListener {
+        if(Authenticated.isValidCacheMember())
+            findNavController().navigate(R.id.action_HomePage_to_HelloUser)
+
+        view.findViewById<Button>(R.id.btnToEmployer).setOnClickListener {
             findNavController().navigate(R.id.action_HomePage_to_RegAndLogEmployee)
         }
     }
