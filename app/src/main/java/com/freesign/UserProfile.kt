@@ -13,7 +13,7 @@ import androidx.navigation.fragment.findNavController
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
-class HelloUser : Fragment() {
+class UserProfile : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,14 +21,17 @@ class HelloUser : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
-        return inflater.inflate(R.layout.hello_user, container, false)
+        Log.d("hello", "hello")
+
+
+        return inflater.inflate(R.layout.user_profile, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<TextView>(R.id.hello_user_nextbutton).setOnClickListener{
-            findNavController().navigate(R.id.action_HelloUser_to_UserProfile)
+        view.findViewById<TextView>(R.id.profile_user_nextbutton).setOnClickListener {
+            findNavController().navigate(R.id.action_UserProfile_to_HomeScreen)
         }
     }
 }

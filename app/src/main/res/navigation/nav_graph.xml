@@ -70,6 +70,20 @@
         android:name="com.freesign.UserProfile"
         android:label="@string/user_profile_label"
         tools:layout="@layout/user_profile">
+        <action
+            android:id="@+id/action_UserProfile_to_HomeScreen"
+            app:destination="@id/HomeScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/HomeScreen"
+        android:name="com.freesign.HomeScreen"
+        android:label="@string/home_screen_label"
+        tools:layout="@layout/home_screen">
+    </fragment>
+    <fragment
+        android:name="com.freesign.HomeScreen"
+        android:label="@string/home_screen_label"
+        tools:layout="@layout/home_screen">
     </fragment>
 
 </navigation>
