@@ -30,26 +30,6 @@ object UserCollection {
             }
     }
 
-    fun updateUser(user: User, onListen: (String) -> Unit)  {
-        userChannelRef
-            .document(userDocumentRef)
-            .update(
-                "fisrtname", user.firstname,
-                "lastname", user.lastname,
-                "email", user.email,
-                "password", user.password,
-                "FCMToken", user.FCMToken
-            )
-            .addOnSuccessListener {
-                this.user = user
-                Authenticated.setUser(user)
-                onListen("success")
-            }
-            .addOnFailureListener {
-                onListen(it.message!!)
-            }
-    }
-
     fun login(email: String, password: String, role: String,onListen: (User) -> Unit): ListenerRegistration {
         return firestoreInstance.collection("users")
             .whereEqualTo("email", email)
@@ -112,6 +92,47 @@ object UserCollection {
                 }
 
                 onListen(items)
+            }
+    }
+
+    fun getUserByRole(role: String, onListen: (ArrayList<User>) -> Unit): ListenerRegistration {
+        return userChannelRef
+            .whereEqualTo("role", role)
+            .addSnapshotListener{ querySnapshot, firebaseFirestoreException ->
+                if (firebaseFirestoreException != null) {
+                    Log.e("FIRESTORE", "UserMessagesListener error.", firebaseFirestoreException)
+                    return@addSnapshotListener
+                }
+
+                var items = ArrayList<User>()
+                querySnapshot!!.documents!!.forEach {
+                    var item = User()
+                    item = it.toObject(User::class.java)!!
+                    items.add(item)
+                }
+
+                onListen(items)
+            }
+    }
+
+    fun updateUser(user: User, onListen: (String) -> Unit)  {
+        userChannelRef
+            .document(userDocumentRef)
+            .update(
+                "lastname", user.firstname,
+                "lastname", user.lastname,
+                "email", user.email,
+                "password", user.password,
+                "image", user.image,
+                "FCMToken", user.FCMToken
+            )
+            .addOnSuccessListener {
+                this.user = user
+                Authenticated.setUser(user)
+                onListen("success")
+            }
+            .addOnFailureListener {
+                onListen(it.message!!)
             }
     }
 }

@@ -30,6 +30,12 @@ class HomePage : Fragment() {
             findNavController().navigate(R.id.action_HomePage_to_HelloUser)
 
         view.findViewById<Button>(R.id.btnToEmployer).setOnClickListener {
+            Authenticated.setRole("employer")
+            findNavController().navigate(R.id.action_HomePage_to_RegAndLogEmployee)
+        }
+
+        view.findViewById<Button>(R.id.btnToDesigner).setOnClickListener {
+            Authenticated.setRole("designer")
             findNavController().navigate(R.id.action_HomePage_to_RegAndLogEmployee)
         }
     }

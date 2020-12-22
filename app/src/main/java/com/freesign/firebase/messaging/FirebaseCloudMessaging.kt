@@ -9,7 +9,6 @@ object FirebaseCloudMessaging {
     fun getToken(user: User) {
         FirebaseInstanceId.getInstance().instanceId
             .addOnSuccessListener {
-                Log.d("token", it.token)
                 user.FCMToken = it.token
                 UserCollection.updateUser(user, this::tokenUpdateCallback)
         }.addOnFailureListener {

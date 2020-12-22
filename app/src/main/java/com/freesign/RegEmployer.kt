@@ -19,6 +19,7 @@ import androidx.navigation.fragment.findNavController
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.freesign.firebase.firestore.collection.UserCollection
 import com.freesign.model.User
+import com.freesign.utils.Authenticated
 import com.freesign.utils.BaseFragment
 import com.google.firebase.firestore.ListenerRegistration
 import kotlinx.android.synthetic.main.register_employer.*
@@ -63,7 +64,7 @@ class RegEmployer : BaseFragment() {
             user.lastname = edtTxtLastName.text.toString().trimEnd()
             user.email = edtTxtEmail.text.toString().trimEnd()
             user.password = edtTxtPassword.text.toString().trimEnd()
-            user.role = "employer"
+            user.role = Authenticated.getRole()
 
             validate()
         }
@@ -128,6 +129,7 @@ class RegEmployer : BaseFragment() {
             dialog!!.dismiss()
             dialog = showError("Email telah digunakan")
         } else {
+            user.image = "avatar.jpg"
             UserCollection.register(user, this::successRegister)
         }
 
