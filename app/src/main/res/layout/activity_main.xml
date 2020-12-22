@@ -6,75 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/form_layout"
-        android:orientation="vertical">
+    <include layout="@layout/content_main" />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:id="@+id/character_image"
-            android:background="@android:color/transparent">
-        </com.google.android.material.imageview.ShapeableImageView>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textCursorDrawable="@null"
-                android:id="@+id/character_name"
-                android:textColor="@android:color/darker_gray"
-
-                />
-
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:textColor="@android:color/darker_gray"
-            android:layout_margin="5dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:text="Description">
-
-        </androidx.appcompat.widget.AppCompatTextView>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:textCursorDrawable="@null"
-                android:id="@+id/description_character"
-                android:lines="19"
-                android:textColor="@android:color/darker_gray"
-                />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:padding="8dp"
-            android:layout_marginTop="18dp"
-            android:text="Submit"
-            android:layout_marginBottom="20dp"
-            android:id="@+id/submit_form"
-            android:textColor="@android:color/primary_text_dark"
-            android:background="#737a"
-            android:gravity="center">
-
-        </androidx.appcompat.widget.AppCompatButton>
-        <ProgressBar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-            android:id="@+id/progress_horizontal_1"
-            android:padding="8dp"
-            android:visibility="gone"
-            android:layout_marginHorizontal="4dp">
-
-        </ProgressBar>
-
-    </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_dialog_email" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

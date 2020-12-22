@@ -47,7 +47,7 @@ class LogEmployer : BaseFragment() {
         view.findViewById<TextView>(R.id.btnLogin).setOnClickListener {
             dialog = showProgress()
 
-            val email = edtTxtEmail.text.toString()
+            val email = edtTxtEmail.text.toString().trimEnd()
             val password = edtTxtPassword.text.toString()
 
             UserCollection.login(email, password, Authenticated.getRole()!!, this::handleLogin)

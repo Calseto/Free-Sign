@@ -15,7 +15,6 @@ object UserCollection {
     var userByUsernameDocumentRef = ""
 
     var user = User()
-    var transactionUser = ArrayList<User>()
 
     fun register(user: User, onListen: (String) -> Unit) {
         userChannelRef
@@ -45,7 +44,7 @@ object UserCollection {
                 querySnapshot!!.documents!!.forEach {
                     items = it.toObject(User::class.java)!!
                     if(items.firstname!=null) {
-                        userByUsernameDocumentRef = it.id
+                        userDocumentRef = it.id
                         items.id = it.id
                         Authenticated.setUser(items)
                     }
@@ -116,8 +115,9 @@ object UserCollection {
     }
 
     fun updateUser(user: User, onListen: (String) -> Unit)  {
+        Log.d("id", user.toString())
         userChannelRef
-            .document(userDocumentRef)
+            .document(user.id.toString())
             .update(
                 "lastname", user.firstname,
                 "lastname", user.lastname,

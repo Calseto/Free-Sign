@@ -26,9 +26,6 @@ class HomePage : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if(Authenticated.isValidCacheMember())
-            findNavController().navigate(R.id.action_HomePage_to_HelloUser)
-
         view.findViewById<Button>(R.id.btnToEmployer).setOnClickListener {
             Authenticated.setRole("employer")
             findNavController().navigate(R.id.action_HomePage_to_RegAndLogEmployee)
