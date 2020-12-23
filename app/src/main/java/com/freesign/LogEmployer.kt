@@ -14,13 +14,12 @@ import androidx.navigation.fragment.findNavController
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.freesign.firebase.firestore.collection.UserCollection
 import com.freesign.firebase.firestore.collection.UserCollection.login
+import com.freesign.firebase.messaging.FirebaseCloudMessaging
+import com.freesign.firebase.messaging.FirebaseCloudMessagingService
 import com.freesign.model.User
 import com.freesign.utils.Authenticated
 import com.freesign.utils.BaseFragment
 
-/**
- * A simple [Fragment] subclass as the second destination in the navigation.
- */
 class LogEmployer : BaseFragment() {
 
     var dialog: SweetAlertDialog? = null
@@ -48,10 +47,10 @@ class LogEmployer : BaseFragment() {
         view.findViewById<TextView>(R.id.btnLogin).setOnClickListener {
             dialog = showProgress()
 
-            val email = edtTxtEmail.text.toString()
+            val email = edtTxtEmail.text.toString().trimEnd()
             val password = edtTxtPassword.text.toString()
 
-            UserCollection.login(email, password, "employer", this::handleLogin)
+            UserCollection.login(email, password, Authenticated.getRole()!!, this::handleLogin)
         }
     }
 
@@ -60,6 +59,7 @@ class LogEmployer : BaseFragment() {
 
         if(user.firstname!=null) {
             dialog = showSuccess("Berhasil login")
+            FirebaseCloudMessaging.getToken(user)
             dialog!!.setConfirmClickListener {
                 dialog!!.dismiss()
                 view?.findNavController()?.navigate(R.id.action_LogEmployer_to_HelloUser)
@@ -67,6 +67,5 @@ class LogEmployer : BaseFragment() {
         } else {
             dialog = showError("User tidak ditemukan")
         }
-
     }
 }

@@ -19,6 +19,7 @@ import androidx.navigation.fragment.findNavController
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.freesign.firebase.firestore.collection.UserCollection
 import com.freesign.model.User
+import com.freesign.utils.Authenticated
 import com.freesign.utils.BaseFragment
 import com.google.firebase.firestore.ListenerRegistration
 import kotlinx.android.synthetic.main.register_employer.*
@@ -37,6 +38,8 @@ class RegEmployer : BaseFragment() {
 
     lateinit var edtTxtFirstName: EditText
     lateinit var edtTxtLastName: EditText
+    lateinit var edtTxtLocation: EditText
+    lateinit var edtTxtPhoneNumber: EditText
     lateinit var edtTxtEmail: EditText
     lateinit var edtTxtPassword: EditText
     lateinit var btnRegister: Button
@@ -51,19 +54,22 @@ class RegEmployer : BaseFragment() {
 
         edtTxtFirstName = view.findViewById(R.id.edtTxtFirstName)
         edtTxtLastName = view.findViewById(R.id.edtTxtLastName)
+        edtTxtLocation = view.findViewById(R.id.edtTxtLocation)
+        edtTxtPhoneNumber = view.findViewById(R.id.edtTxtPhoneNumber)
         edtTxtEmail = view.findViewById(R.id.edtTxtEmail)
         edtTxtPassword = view.findViewById(R.id.edtTxtPassword)
         btnRegister = view.findViewById(R.id.btnRegister)
-
 
         view.findViewById<Button>(R.id.btnRegister).setOnClickListener {
             dialog = showProgress()
 
             user.firstname = edtTxtFirstName.text.toString().trimEnd()
             user.lastname = edtTxtLastName.text.toString().trimEnd()
+            user.location = edtTxtLocation.text.toString().trimEnd()
+            user.phoneNumber = edtTxtPhoneNumber.text.toString().trimEnd()
             user.email = edtTxtEmail.text.toString().trimEnd()
             user.password = edtTxtPassword.text.toString().trimEnd()
-            user.role = "employer"
+            user.role = Authenticated.getRole()
 
             validate()
         }
@@ -80,7 +86,12 @@ class RegEmployer : BaseFragment() {
         val h2 = Handler()
         val r2: Runnable = object : Runnable {
             override fun run() {
-                if(edtTxtFirstName.text!!.isNotEmpty() && edtTxtLastName.text!!.isNotEmpty() && edtTxtEmail.text!!.isNotEmpty() && edtTxtPassword.text!!.isNotEmpty()) {
+                if(edtTxtFirstName.text!!.isNotEmpty()
+                    && edtTxtLastName.text!!.isNotEmpty()
+                    && edtTxtLocation.text!!.isNotEmpty()
+                    && edtTxtPhoneNumber.text!!.isNotEmpty()
+                    && edtTxtEmail.text!!.isNotEmpty()
+                    && edtTxtPassword.text!!.isNotEmpty()) {
                     btnRegister.isEnabled = true
                     btnRegister.setBackgroundColor(resources.getColor(R.color.colorPrimaryDark))
                 } else {
@@ -103,8 +114,8 @@ class RegEmployer : BaseFragment() {
             dialog = showError("Panjang password kurang dari 8 karakter")
             return
         }
-        getUserByUsername = UserCollection.getUserByName(user.firstname!!, user.lastname!!, "employer", this::checkName)
 
+        getUserByUsername = UserCollection.getUserByName(user.firstname!!, user.lastname!!, "employer", this::checkName)
         return
     }
 
@@ -128,6 +139,7 @@ class RegEmployer : BaseFragment() {
             dialog!!.dismiss()
             dialog = showError("Email telah digunakan")
         } else {
+            user.image = "avatar.jpg"
             UserCollection.register(user, this::successRegister)
         }
 

@@ -1,0 +1,18 @@
+order:
+- id
+- employerId
+- designerId
+- rating
+- status
+- chats
+- created_at
+
+chat:
+- from
+- to
+- created_at
+
+post:
+- caption
+- designer
+- created_at

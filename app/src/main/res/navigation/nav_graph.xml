@@ -3,8 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/HomePage">
+    app:startDestination="@id/SplashScreen">
 
+    <fragment
+        android:id="@+id/SplashScreen"
+        android:name="com.freesign.SplashScreen"
+        tools:layout="@layout/splash_screen">
+        <action
+            android:id="@+id/action_SplashScreen_to_HomePage"
+            app:destination="@id/HomePage" />
+        <action
+            android:id="@+id/action_SplashScreen_to_HelloUser"
+            app:destination="@id/HelloUser" />
+    </fragment>
     <fragment
         android:id="@+id/HomePage"
         android:name="com.freesign.HomePage"
@@ -71,19 +82,8 @@
         android:label="@string/user_profile_label"
         tools:layout="@layout/user_profile">
         <action
-            android:id="@+id/action_UserProfile_to_HomeScreen"
-            app:destination="@id/HomeScreen" />
-    </fragment>
-    <fragment
-        android:id="@+id/HomeScreen"
-        android:name="com.freesign.HomeScreen"
-        android:label="@string/home_screen_label"
-        tools:layout="@layout/home_screen">
-    </fragment>
-    <fragment
-        android:name="com.freesign.HomeScreen"
-        android:label="@string/home_screen_label"
-        tools:layout="@layout/home_screen">
+            android:id="@+id/action_UserProfile_to_HomePage"
+            app:destination="@id/HomePage" />
     </fragment>
 
 </navigation>

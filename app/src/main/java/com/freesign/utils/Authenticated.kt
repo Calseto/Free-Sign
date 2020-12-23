@@ -12,6 +12,7 @@ object Authenticated {
     private const val KEY_USER = "user"
     private const val KEY_MEMBER = "member"
     private const val KEY_TOKEN = "token"
+    private const val KEY_ROLE = "role"
     private const val PREFS_NAME = "auth_pref"
     private lateinit var preferences : SharedPreferences
     private lateinit var editor: SharedPreferences.Editor
@@ -34,6 +35,19 @@ object Authenticated {
             return gson.fromJson(preferences.getString(KEY_USER, ""), User::class.java)
         } else {
             return User()
+        }
+    }
+
+    fun setRole(value: String) {
+        editor.putString(KEY_ROLE, value)
+        editor.commit()
+    }
+
+    fun getRole(): String? {
+        if(preferences.getString(KEY_ROLE, "")!="") {
+            return preferences.getString(KEY_ROLE, "")
+        } else {
+            return ""
         }
     }
 

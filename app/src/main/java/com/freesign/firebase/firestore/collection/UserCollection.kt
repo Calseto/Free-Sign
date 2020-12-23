@@ -15,7 +15,6 @@ object UserCollection {
     var userByUsernameDocumentRef = ""
 
     var user = User()
-    var transactionUser = ArrayList<User>()
 
     fun register(user: User, onListen: (String) -> Unit) {
         userChannelRef
@@ -27,26 +26,6 @@ object UserCollection {
             .addOnFailureListener {
                 Log.d("error", it.toString())
                 onListen("error")
-            }
-    }
-
-    fun updateUser(user: User, onListen: (String) -> Unit)  {
-        userChannelRef
-            .document(userDocumentRef)
-            .update(
-                "fisrtname", user.firstname,
-                "lastname", user.lastname,
-                "email", user.email,
-                "password", user.password,
-                "FCMToken", user.FCMToken
-            )
-            .addOnSuccessListener {
-                this.user = user
-                Authenticated.setUser(user)
-                onListen("success")
-            }
-            .addOnFailureListener {
-                onListen(it.message!!)
             }
     }
 
@@ -65,7 +44,7 @@ object UserCollection {
                 querySnapshot!!.documents!!.forEach {
                     items = it.toObject(User::class.java)!!
                     if(items.firstname!=null) {
-                        userByUsernameDocumentRef = it.id
+                        userDocumentRef = it.id
                         items.id = it.id
                         Authenticated.setUser(items)
                     }
@@ -112,6 +91,48 @@ object UserCollection {
                 }
 
                 onListen(items)
+            }
+    }
+
+    fun getUserByRole(role: String, onListen: (ArrayList<User>) -> Unit): ListenerRegistration {
+        return userChannelRef
+            .whereEqualTo("role", role)
+            .addSnapshotListener{ querySnapshot, firebaseFirestoreException ->
+                if (firebaseFirestoreException != null) {
+                    Log.e("FIRESTORE", "UserMessagesListener error.", firebaseFirestoreException)
+                    return@addSnapshotListener
+                }
+
+                var items = ArrayList<User>()
+                querySnapshot!!.documents!!.forEach {
+                    var item = User()
+                    item = it.toObject(User::class.java)!!
+                    items.add(item)
+                }
+
+                onListen(items)
+            }
+    }
+
+    fun updateUser(user: User, onListen: (String) -> Unit)  {
+        Log.d("id", user.toString())
+        userChannelRef
+            .document(user.id.toString())
+            .update(
+                "lastname", user.firstname,
+                "lastname", user.lastname,
+                "email", user.email,
+                "password", user.password,
+                "image", user.image,
+                "FCMToken", user.FCMToken
+            )
+            .addOnSuccessListener {
+                this.user = user
+                Authenticated.setUser(user)
+                onListen("success")
+            }
+            .addOnFailureListener {
+                onListen(it.message!!)
             }
     }
 }
