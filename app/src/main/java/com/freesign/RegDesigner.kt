@@ -29,7 +29,7 @@ import kotlinx.android.synthetic.main.register_employer.*
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
-class RegEmployer : BaseFragment() {
+class RegDesigner : BaseFragment() {
 
     var dialog: SweetAlertDialog? = null
     var user: User = User()
@@ -42,6 +42,7 @@ class RegEmployer : BaseFragment() {
     lateinit var edtTxtLastName: EditText
     lateinit var edtTxtLocation: EditText
     lateinit var edtTxtPhoneNumber: EditText
+    lateinit var radioSpecialization: RadioGroup
     lateinit var edtTxtEmail: EditText
     lateinit var edtTxtPassword: EditText
     lateinit var btnRegister: Button
@@ -52,12 +53,13 @@ class RegEmployer : BaseFragment() {
     ): View? {
         // Inflate the layout for this fragment
 
-        val view = inflater.inflate(R.layout.register_employer, container, false)
+        val view = inflater.inflate(R.layout.register_designer, container, false)
 
         edtTxtFirstName = view.findViewById(R.id.edtTxtFirstName)
         edtTxtLastName = view.findViewById(R.id.edtTxtLastName)
         edtTxtLocation = view.findViewById(R.id.edtTxtLocation)
         edtTxtPhoneNumber = view.findViewById(R.id.edtTxtPhoneNumber)
+        radioSpecialization = view.findViewById(R.id.radioSpecialization)
         edtTxtEmail = view.findViewById(R.id.edtTxtEmail)
         edtTxtPassword = view.findViewById(R.id.edtTxtPassword)
         btnRegister = view.findViewById(R.id.btnRegister)
@@ -69,6 +71,7 @@ class RegEmployer : BaseFragment() {
             user.lastname = edtTxtLastName.text.toString().trimEnd()
             user.location = edtTxtLocation.text.toString().trimEnd()
             user.phoneNumber = edtTxtPhoneNumber.text.toString().trimEnd()
+            user.specialization = view.findViewById<RadioButton>(radioSpecialization.checkedRadioButtonId).text.toString()
             user.email = edtTxtEmail.text.toString().trimEnd()
             user.password = edtTxtPassword.text.toString().trimEnd()
             user.role = Authenticated.getRole()
@@ -76,7 +79,7 @@ class RegEmployer : BaseFragment() {
             validate()
         }
         view.findViewById<Button>(R.id.employer_registertologin_button).setOnClickListener {
-            findNavController().navigate(R.id.action_RegEmployer_to_LogEmployer)
+            findNavController().navigate(R.id.action_RegDesigner_to_LogEmployer)
         }
 
         return view
@@ -153,7 +156,7 @@ class RegEmployer : BaseFragment() {
         dialog = showSuccess("Berhasil melakukan pendaftaran")
         dialog!!.setConfirmClickListener {
             dialog!!.dismiss()
-            view?.findNavController()?.navigate(R.id.action_RegEmployer_to_LogEmployer)
+            view?.findNavController()?.navigate(R.id.action_RegDesigner_to_LogEmployer)
         }
         return
     }

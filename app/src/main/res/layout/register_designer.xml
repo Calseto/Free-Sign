@@ -83,7 +83,7 @@
         android:layout_height="45dp"
         android:background="@drawable/edittext"
         android:ems="10"
-        android:inputType="text"
+        android:inputType="number"
         android:padding="10dp"
         android:textCursorDrawable="@null"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -92,13 +92,46 @@
         app:layout_constraintTop_toBottomOf="@+id/reg_employer_textView7"
         app:layout_constraintVertical_bias="0.0" />
 
+    <RadioGroup
+        android:id="@+id/radioSpecialization"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reg_employer_textView8"
+        app:layout_constraintVertical_bias="0.0"
+
+        >
+        <RadioButton
+            android:id="@+id/rb_web"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Web Designer"
+            android:buttonTint="#B85412"/>
+
+        <RadioButton
+            android:id="@+id/rb_interior"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Interior Designer"
+            android:buttonTint="#B85412"/>
+
+        <RadioButton
+            android:id="@+id/rb_architecture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Architecture"
+            android:buttonTint="#B85412"/>
+    </RadioGroup>
+
     <EditText
         android:id="@+id/edtTxtEmail"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:background="@drawable/edittext"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="text"
         android:padding="10dp"
         android:textCursorDrawable="@null"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -199,6 +232,22 @@
         app:layout_constraintVertical_bias="0.02" />
 
     <TextView
+        android:id="@+id/reg_employer_textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="Specialization"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtPhoneNumber"
+        app:layout_constraintVertical_bias="0.02" />
+
+
+    <TextView
         android:id="@+id/reg_employer_textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -210,7 +259,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtTxtPhoneNumber"
+        app:layout_constraintTop_toBottomOf="@+id/radioSpecialization"
         app:layout_constraintVertical_bias="0.02" />
 
     <TextView

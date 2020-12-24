@@ -114,6 +114,27 @@ object UserCollection {
             }
     }
 
+    fun getDesignerBySpecialization(specialization: String, onListen: (ArrayList<User>) -> Unit): ListenerRegistration {
+        return userChannelRef
+            .whereEqualTo("specialization", specialization)
+            .whereEqualTo("role", "designer")
+            .addSnapshotListener{ querySnapshot, firebaseFirestoreException ->
+                if (firebaseFirestoreException != null) {
+                    Log.e("FIRESTORE", "UserMessagesListener error.", firebaseFirestoreException)
+                    return@addSnapshotListener
+                }
+
+                var items = ArrayList<User>()
+                querySnapshot!!.documents!!.forEach {
+                    var item = User()
+                    item = it.toObject(User::class.java)!!
+                    items.add(item)
+                }
+
+                onListen(items)
+            }
+    }
+
     fun updateUser(user: User, onListen: (String) -> Unit)  {
         Log.d("id", user.toString())
         userChannelRef

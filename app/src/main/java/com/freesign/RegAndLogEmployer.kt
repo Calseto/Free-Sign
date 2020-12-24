@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
+import com.freesign.utils.Authenticated
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -28,7 +29,10 @@ class RegAndLogEmployer : Fragment() {
             findNavController().navigate(R.id.action_RegAndLogEmployer_to_LogEmployer)
         }
         view.findViewById<Button>(R.id.btnRegister).setOnClickListener {
-            findNavController().navigate(R.id.action_RegAndLogEmployer_to_RegEmployer)
+            if(Authenticated.getRole() == "employer")
+                findNavController().navigate(R.id.action_RegAndLogEmployer_to_RegEmployer)
+            else
+                findNavController().navigate(R.id.action_RegAndLogEmployer_to_RegDesigner)
         }
     }
 }

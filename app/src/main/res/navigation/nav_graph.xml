@@ -38,9 +38,24 @@
             android:id="@+id/action_RegAndLogEmployer_to_RegEmployer"
             app:destination="@id/RegEmployer" />
         <action
+        android:id="@+id/action_RegAndLogEmployer_to_RegDesigner"
+        app:destination="@id/RegDesigner" />
+        <action
             android:id="@+id/action_RegAndLogEmployer_to_LogEmployer"
             app:destination="@id/LogEmployer" />
 
+    </fragment>
+    <fragment
+        android:id="@+id/RegDesigner"
+        android:name="com.freesign.RegDesigner"
+        android:label="@string/reg_employer_label"
+        tools:layout="@layout/register_designer">
+        <action
+            android:id="@+id/action_RegDesigner_to_LogEmployer"
+            app:destination="@id/LogEmployer" />
+        <action
+            android:id="@+id/action_RegDesigner_to_HelloUser"
+            app:destination="@id/HelloUser" />
     </fragment>
     <fragment
         android:id="@+id/RegEmployer"

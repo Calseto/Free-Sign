@@ -10,6 +10,7 @@ data class User (
     var password: String? = null,
     var email: String? = null,
     var role: String? = null,
+    var specialization: String? = null,
     var image: String? = null,
     var rating: Int? = null,
     var cv: Int? = null,
