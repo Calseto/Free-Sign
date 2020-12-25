@@ -22,6 +22,4 @@
         android:id="@+id/miAccount"
         android:title="Account"
         android:icon="@drawable/ic_baseline_account_circle_24"/>
-
-
 </menu>

@@ -1,5 +1,6 @@
 package com.freesign
 
+import android.annotation.SuppressLint
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.graphics.Bitmap
@@ -63,6 +64,7 @@ class UserProfile : BaseFragment() {
         return inflater.inflate(R.layout.user_profile, container, false)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -89,7 +91,7 @@ class UserProfile : BaseFragment() {
         location.text = user.location
 
         view.findViewById<TextView>(R.id.profile_user_nextbutton).setOnClickListener {
-            
+            findNavController().navigate(R.id.action_UserProfile_to_HomeScreen)
         }
 
         view.findViewById<TextView>(R.id.profile_user_logoutbutton).setOnClickListener{

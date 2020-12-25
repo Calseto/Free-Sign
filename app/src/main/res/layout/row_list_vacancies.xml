@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/my_vacancies_box"
+    android:paddingLeft="10dp"
+    android:paddingTop="10dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="10dp">
+
+    <TextView
+        android:id="@+id/judul_vacancies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Judul Vaccancies"
+        android:textColor="#3394FD"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <TextView
+        android:id="@+id/deadline_vacancies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingLeft="5dp"
+        android:text="Deadline"
+        android:textColor="#5A5858"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/judul_vacancies" />
+
+    <ImageView
+        android:id="@+id/deadlineimage_vacancies"
+        android:layout_width="13dp"
+        android:layout_height="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/deadline_vacancies"
+        app:layout_constraintTop_toTopOf="@+id/deadline_vacancies"
+        app:srcCompat="@drawable/ic_deadline" />
+
+
+    <TextView
+        android:id="@+id/price_vacancies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingLeft="5dp"
+        android:text="Price"
+        android:textColor="#5A5858"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/priceimage_vacancies"
+        app:layout_constraintTop_toBottomOf="@+id/judul_vacancies" />
+
+    <ImageView
+        android:id="@+id/priceimage_vacancies"
+        android:layout_width="13dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@+id/deadline_vacancies"
+        app:layout_constraintTop_toTopOf="@+id/price_vacancies"
+        app:srcCompat="@drawable/ic_baseline_monetization_on_24" />
+
+    <TextView
+        android:id="@+id/pendaftar_vacancies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingLeft="5dp"
+        android:text="Pendaftar"
+        android:textColor="#5A5858"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/pendaftarimage_vacancies"
+        app:layout_constraintTop_toBottomOf="@+id/judul_vacancies" />
+
+    <ImageView
+        android:id="@+id/pendaftarimage_vacancies"
+        android:layout_width="13dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@+id/price_vacancies"
+        app:layout_constraintTop_toTopOf="@+id/pendaftar_vacancies"
+        app:srcCompat="@drawable/ic_group" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
