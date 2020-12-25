@@ -97,6 +97,24 @@
         android:label="@string/user_profile_label"
         tools:layout="@layout/user_profile">
         <action
+            android:id="@+id/action_UserProfile_to_HomeScreen"
+            app:destination="@id/HomeScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/HomeScreen"
+        android:name="com.freesign.HomeScreen"
+        android:label="@string/user_profile_label"
+        tools:layout="@layout/user_profile">
+        <action
+            android:id="@+id/action_HomeScreen_to_MainMenu"
+            app:destination="@id/MainMenu" />
+    </fragment>
+    <fragment
+        android:id="@+id/MainMenu"
+        android:name="com.freesign.MainMenu"
+        android:label="@string/user_profile_label"
+        tools:layout="@layout/main_menu">
+        <action
             android:id="@+id/action_UserProfile_to_HomePage"
             app:destination="@id/HomePage" />
     </fragment>

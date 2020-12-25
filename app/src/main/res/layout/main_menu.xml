@@ -4,10 +4,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingHorizontal="10dp">
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/header"
         android:layout_width="207dp"
         android:layout_height="58dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -19,28 +20,32 @@
         app:srcCompat="@drawable/logo_3" />
 
     <FrameLayout
-        android:id="@+id/fl_container"
-        android:layout_width="412dp"
-        android:layout_height="540dp"
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="70dp"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="413dp"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@drawable/mybutton"
+        android:background="@drawable/navbar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976"
-        app:menu="@menu/bottom_nav_bar" />
+        app:menu="@menu/bottom_nav_bar"
+        app:itemIconTint="#444444"
+        app:itemTextColor="#444444"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

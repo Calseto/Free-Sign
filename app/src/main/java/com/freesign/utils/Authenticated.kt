@@ -13,6 +13,7 @@ object Authenticated {
     private const val KEY_MEMBER = "member"
     private const val KEY_TOKEN = "token"
     private const val KEY_ROLE = "role"
+    private const val KEY_SPECIALIZATION = "specialization"
     private const val PREFS_NAME = "auth_pref"
     private lateinit var preferences : SharedPreferences
     private lateinit var editor: SharedPreferences.Editor
@@ -46,6 +47,19 @@ object Authenticated {
     fun getRole(): String? {
         if(preferences.getString(KEY_ROLE, "")!="") {
             return preferences.getString(KEY_ROLE, "")
+        } else {
+            return ""
+        }
+    }
+
+    fun setSpecialization(value: String) {
+        editor.putString(KEY_SPECIALIZATION, value)
+        editor.commit()
+    }
+
+    fun getSpecialization(): String? {
+        if(preferences.getString(KEY_SPECIALIZATION, "")!="") {
+            return preferences.getString(KEY_SPECIALIZATION, "")
         } else {
             return ""
         }

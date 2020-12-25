@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.freesign.utils.Authenticated
 import kotlinx.android.synthetic.main.home_screen.*
 
 /**
@@ -36,6 +38,10 @@ class HomeScreen : Fragment() {
             spinner.adapter = adapter
         }
 
+        button_web.setOnClickListener {
+            Authenticated.setSpecialization("Web Designer")
+            findNavController().navigate(R.id.action_HomeScreen_to_MainMenu)
+        }
 
 
     }
