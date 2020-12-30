@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="159dp"
+        android:layout_height="42dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.078"
+        app:srcCompat="@drawable/logo_2" />
+
+
+    <ImageView
+        android:id="@+id/image_profile_upload_design"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView14" />
+
+    <ImageView
+        android:id="@+id/image_change_upload_design"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="80dp"
+        android:src="@mipmap/ic_camera"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/image_profile_upload_design"
+        app:layout_constraintVertical_bias="0.027" />
+
+    <ImageView
+        android:id="@+id/imageView_cv_upload_design"
+        android:layout_width="37dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/image_profile_upload_design"
+        app:layout_constraintStart_toStartOf="@+id/image_profile_upload_design"
+        app:layout_constraintTop_toBottomOf="@+id/image_profile_upload_design"
+        app:srcCompat="@drawable/upload_icon" />
+
+    <TextView
+        android:id="@+id/CV_upload_design"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="CV"
+        android:textColor="#CD4D58"
+        app:layout_constraintEnd_toEndOf="@+id/imageView_cv_upload_design"
+        app:layout_constraintStart_toStartOf="@+id/imageView_cv_upload_design"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_cv_upload_design" />
+
+    <ImageView
+        android:id="@+id/imageView_portofolio_upload_design"
+        android:layout_width="37dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/CV_upload_design"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="@+id/CV_upload_design"
+        app:layout_constraintTop_toBottomOf="@+id/CV_upload_design"
+        app:srcCompat="@drawable/upload_orange" />
+
+    <TextView
+        android:id="@+id/portofolio_upload_design"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Portofolio"
+        android:textColor="#E49763"
+        app:layout_constraintEnd_toEndOf="@+id/imageView_portofolio_upload_design"
+        app:layout_constraintStart_toStartOf="@+id/imageView_portofolio_upload_design"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_portofolio_upload_design" />
+
+    <ImageView
+        android:id="@+id/imageView_certificate_upload_design"
+        android:layout_width="37dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/portofolio_upload_design"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="@+id/portofolio_upload_design"
+        app:layout_constraintTop_toBottomOf="@+id/portofolio_upload_design"
+        app:srcCompat="@drawable/upload_ijo" />
+
+    <TextView
+        android:id="@+id/certificate_upload_design"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Certificate"
+        android:textColor="#D2C480"
+        app:layout_constraintEnd_toEndOf="@+id/imageView_certificate_upload_design"
+        app:layout_constraintStart_toStartOf="@+id/imageView_certificate_upload_design"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_certificate_upload_design" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thank you for joining with us"
+        android:textColor="#E49763"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.931" />
+    <TextView
+        android:id="@+id/profile_user_nextbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next >"
+        android:textColor="#95BFBE"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.955"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <TextView
+        android:id="@+id/profile_user_backbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="< Back"
+        android:textColor="#95BFBE"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+</androidx.constraintlayout.widget.ConstraintLayout>
